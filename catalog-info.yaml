@@ -1,0 +1,22 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: backend-tests-nodejs-invonubx-gitops
+  description: This is GitOps manifest for backend-tests-nodejs-invonubx   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-selector: tssc/gitops=backend-tests-nodejs-invonubx
+    backstage.io/kubernetes-id: backend-tests-nodejs-invonubx 
+    backstage.io/techdocs-ref: dir:.
+    dev.azure.com/project: shared-public
+    dev.azure.com/build-definition: backend-tests-nodejs-invonubx-gitops
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:backend-tests-nodejs-invonubx
